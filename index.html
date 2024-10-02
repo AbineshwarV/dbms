@@ -1,0 +1,455 @@
+
+<?php
+include_once('hms/include/config.php');
+if(isset($_POST['submit']))
+{
+$name=$_POST['fullname'];
+$email=$_POST['emailid'];
+$mobileno=$_POST['mobileno'];
+$dscrption=$_POST['description'];
+$query=mysqli_query($con,"insert into tblcontactus(fullname,email,contactno,message) value('$name','$email','$mobileno','$dscrption')");
+echo "<script>alert('Your information succesfully submitted');</script>";
+echo "<script>window.location.href ='index.php'</script>";
+
+} ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HMS</title>
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <!-- 
+    - #HEADER
+  -->
+  <header>
+    <div class="header-container">
+      <!-- Logo -->
+      <a href="#" class="header-logo">
+        <img src="assets/images/logo2.png" alt="Logo">
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav>
+        <ul class="header-nav-menu">
+          <li><a href="#" class="header-nav-link">Home</a></li>
+          <li><a href="#login" class="header-nav-link">Login</a></li>
+          <li><a href="#services" class="header-nav-link">Services</a></li>
+          <li><a href="#all_doctors" class="header-nav-link">All Doctors</a></li>
+          <li><a href="#contact_us" class="header-nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Appointment Button -->
+      <a href="hms/user-login.php" class="btn">Appointment</a>
+
+      <!-- Hamburger Menu -->
+      <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+          <span></span>
+        </label>
+
+        <ul class="menu__box">
+          <li><a class="menu__item" href="#">Home</a></li>
+          <li><a class="menu__item" href="#login">Login</a></li>
+          <li><a class="menu__item" href="#services">Services</a></li>
+          <li><a class="menu__item" href="#all_doctors">All Doctors</a></li>
+          <li><a class="menu__item" href="#contact_us">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+    <!-- 
+        - #SLIDER
+      -->
+    <main>
+      <article>
+<section id="home" class="home-body">
+    <div class="image-block">
+        <img src="./assets/images/slider/cover2.jpg" alt="Cover Image">
+    </div>
+</section>
+
+
+        <!-- 
+        - #SERVICE
+      -->
+
+        <section class="service" id="login">
+          <div class="container">
+            <h2 class="h2 section-title">Our Main Service</h2>
+
+            <ul class="service-list">
+              <li>
+                <div class="service-card">
+                  <div class="card-icon">
+                    <img src="./assets/images//services/patient.png" alt="Service icon" />
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a>Patient Login</a>
+                  </h3>
+                  <a
+                    href="hms/user-login.php"
+                    target="_blank"
+                    class="card-link"
+                  >
+                    <span>Click Here</span>
+
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <div class="service-card">
+                  <div class="card-icon">
+                    <img src="./assets/images/services/doctor.png" alt="Service icon" />
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a>Doctors Login</a>
+                  </h3>
+                  <a href="hms/doctor" target="_blank" class="card-link">
+                    <span>Click Here</span>
+
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <div class="service-card">
+                  <div class="card-icon">
+                    <img src="./assets/images/services/admin.png" alt="Service icon" />
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a>Admin Login</a>
+                  </h3>
+                  <a href="hms/admin" target="_blank" class="card-link">
+                    <span>Click Here</span>
+
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 
+        - #SERVICES
+      -->
+
+        <section id="services" class="features">
+          <div class="container">
+            <h2 class="h2 section-title">Our Key Features</h2>
+
+            <ul class="features-list">
+              <li>
+                <a href="#" class="features-card">
+                  <div class="card-icon">
+                    <i class="fa-solid fa-heart"></i>
+                  </div>
+
+                  <h3 class="card-title">Cardiology</h3>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="features-card">
+                  <div class="card-icon">
+                    <i class="fa-solid fa-bone"></i>
+                  </div>
+
+                  <h3 class="card-title">Orthopaedic</h3>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="features-card">
+                  <div class="card-icon">
+                    <i class="fa-solid fa-brain"></i>
+                  </div>
+                  <h3 class="card-title">Neurology</h3>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="features-card">
+                  <div class="card-icon">
+                    <i class="fa-solid fa-tooth"></i>
+                  </div>
+                  <h3 class="card-title">Dentistry</h3>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="features-card">
+                  <div class="card-icon">
+                    <i class="fa-solid fa-pills"></i>
+                  </div>
+                  <h3 class="card-title">Pharma Pipeline</h3>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="features-card">
+                  <div class="card-icon">
+                    <i class="fa-solid fa-user-doctor"></i>
+                  </div>
+                  <h3 class="card-title">Pharma Team</h3>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="features-card">
+                  <div class="card-icon">
+                    <i class="fa-solid fa-kit-medical"></i>
+                  </div>
+                  <h3 class="card-title">High-Quality Treatments</h3>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="features-card">
+                  <div class="card-icon">
+                    <i class="fa-solid fa-dna"></i>
+                  </div>
+                  <h3 class="card-title">Genetics</h3>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+        #TOP DOCTORSS-->
+        <section class="top-doctors-section" id="all_doctors">
+          <div class="doctors-wrapper">
+            <h2 class="h2 section-title">All Doctors</h2>
+            <p>Top Doctors to Book</p>
+
+            <div class="cards-container">
+              <!-- Doctor Card 1 -->
+              <div class="doctor-card">
+                <div class="image-container">
+                  <img
+                    src="./assets/images/doctor1.jpg"
+                    alt="Doctor Image"
+                  />
+                </div>
+                <div class="status-indicator">
+                  <span class="indicator-circle"></span> Available
+                </div>
+                <h5>Dr. Abineshwar V</h5>
+                <p>Immunologist</p>
+              </div>
+
+              <!-- Doctor Card 2 -->
+              <div class="doctor-card">
+                <div class="image-container">
+                  <img
+                    src="./assets/images/doctor2.jpg"
+                    alt="Doctor Image"
+                  />
+                </div>
+                <div class="status-indicator">
+                  <span class="indicator-circle"></span> Available
+                </div>
+                <h5>Dr. Anto Sam Christ A</h5>
+                <p>Anesthesiologists</p>
+              </div>
+
+              <!-- Doctor Card 3 -->
+              <div class="doctor-card">
+                <div class="image-container">
+                  <img
+                   src="./assets/images/doctor3.jpg"
+                    alt="Doctor Image"
+                  />
+                </div>
+                <div class="status-indicator">
+                  <span class="indicator-circle"></span> Available
+                </div>
+                <h5>Balaji G</h5>
+                <p>Cardiologists</p>
+              </div>
+
+              <!-- Doctor Card 4 -->
+              <div class="doctor-card">
+                <div class="image-container">
+                  <img
+                    src="./assets/images/doctor4.jpg"
+                    alt="Doctor Image"
+                  />
+                </div>
+                <div class="status-indicator">
+                  <span class="indicator-circle"></span> Available
+                </div>
+                <h5>Dr. Balaji P</h5>
+                <p>Dermatologists</p>
+              </div>
+
+              <!-- Doctor Card 5 -->
+              <div class="doctor-card">
+                <div class="image-container">
+                  <img
+                    src="./assets/images/doctor5.jpg"
+                    alt="Doctor Image"
+                  />
+                </div>
+                <div class="status-indicator">
+                  <span class="indicator-circle"></span> Available
+                </div>
+                <h5>Dr. Guruprasad S</h5>
+                <p>Neurologist</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--
+        #CONTACT US-->
+        <section id="contact_us" class="contact-section">
+          <h2 class="h2 section-title">Contact Us</h2>
+          <div class="contact-us-container">
+            <img
+              src="./assets/images/contactus.png"
+              alt="Illustration"
+              class="illustration-image"
+            />
+            <form method="post" action="contactForm" class="contact-form">
+              <div class="cf-ro">
+                <label for="fullname">Enter Name:</label>
+                <input
+                  type="text"
+                  id="fullname"
+                  placeholder="Enter Name"
+                  name="fullname"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="cf-ro">
+                <label for="emailid">Email Address:</label>
+                <input
+                  type="email"
+                  id="emailid"
+                  name="emailid"
+                  placeholder="Enter Email Address"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="cf-ro">
+                <label for="mobileno">Mobile Number:</label>
+                <input
+                  type="tel"
+                  id="mobileno"
+                  name="mobileno"
+                  placeholder="Enter Mobile Number"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="cf-ro">
+                <label for="description">Enter Message:</label>
+                <textarea
+                  rows="4"
+                  id="description"
+                  placeholder="Enter Your Message"
+                  class="form-control"
+                  name="description"
+                  required
+                ></textarea>
+              </div>
+              <div class="cf-ro">
+                <button class="submit-btn" type="submit" name="submit">
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+ 
+ 
+        <!--- #FOOTER-->
+        <footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-column logo-column">
+        <img src="assets/images/logo2.png" alt="Medi Aces Logo" class="footer-small-logo" />
+      </div>
+      <div class="footer-column contact-column">
+        <h2 class="footer-title">Contact Us</h2>
+        <address>
+          <?php
+            $ret = mysqli_query($con, "SELECT * FROM tblpage WHERE PageType='contactus'");
+            while ($row = mysqli_fetch_array($ret)) {
+          ?>
+          <div class="address-description"><?php echo nl2br($row['PageDescription']); ?></div>
+          <div class="timing-info">Timing: <?php echo $row['OpenningTime']; ?></div>
+          <div class="contact-info">
+            <span class="contact-item">Phone: <?php echo $row['MobileNumber']; ?></span>
+            <span class="contact-separator">|</span>
+            <span class="contact-item">Email: <?php echo $row['Email']; ?></a></span>
+          </div>
+          <?php } ?>
+        </address>
+      </div>
+    </div>
+  </div>
+  <div class="copy">
+    <b>Copyright 2024 @ Medi Aces - All Right Reserved.</b>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+        <!-- 
+    - custom js link
+  -->
+        <script src="./assets/js/script.js"></script>
+      </article>
+    </main>
+  </body>
+</html>
